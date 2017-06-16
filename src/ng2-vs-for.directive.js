@@ -8,7 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
 var dde = document.documentElement, matchingFunction = dde.matches ? 'matches' :
     dde.matchesSelector ? 'matchesSelector' :
         dde.webkitMatches ? 'webkitMatches' :
@@ -74,13 +75,14 @@ function nextElementSibling(el) {
     return el;
 }
 var VsFor = (function () {
-    function VsFor(_element, _viewContainer, _templateRef, _renderer, _ngZone) {
+    function VsFor(_element, _viewContainer, _templateRef, _renderer, _ngZone, _changeDetectorRef) {
         var _this = this;
         this._element = _element;
         this._viewContainer = _viewContainer;
         this._templateRef = _templateRef;
         this._renderer = _renderer;
         this._ngZone = _ngZone;
+        this._changeDetectorRef = _changeDetectorRef;
         this._originalCollection = [];
         this._slicedCollection = [];
         this.tagName = 'div';
@@ -384,6 +386,7 @@ var VsFor = (function () {
             var layoutProp = this.__horizontal ? 'width' : 'height';
             this.before.style[layoutProp] = o1 + 'px';
             this.after.style[layoutProp] = (total - o2) + 'px';
+            this._changeDetectorRef.markForCheck();
         }
         return digestRequired;
     };
@@ -393,24 +396,29 @@ var VsFor = (function () {
         }
         return (index + this.startIndex) * this.elementSize + this.vsOffsetBefore;
     };
-    VsFor = __decorate([
-        core_1.Directive({
-            selector: '[vsFor]',
-            inputs: [
-                'originalCollection: vsFor',
-                'vsSize: vsForSize',
-                'vsOffsetAfter: vsForOffsetAfter',
-                'vsOffsetBefore: vsForOffsetBefore',
-                'vsExcess: vsForExcess',
-                'tagName: vsForTagName',
-                'vsScrollParent: vsForScrollParent',
-                '__horizontal: vsForHorizontal',
-                'vsAutoresize: vsForAutoresize'
-            ]
-        }), 
-        __metadata('design:paramtypes', [core_1.ElementRef, core_1.ViewContainerRef, core_1.TemplateRef, core_1.Renderer, core_1.NgZone])
-    ], VsFor);
     return VsFor;
 }());
+VsFor = __decorate([
+    core_1.Directive({
+        selector: '[vsFor]',
+        inputs: [
+            'originalCollection: vsFor',
+            'vsSize: vsForSize',
+            'vsOffsetAfter: vsForOffsetAfter',
+            'vsOffsetBefore: vsForOffsetBefore',
+            'vsExcess: vsForExcess',
+            'tagName: vsForTagName',
+            'vsScrollParent: vsForScrollParent',
+            '__horizontal: vsForHorizontal',
+            'vsAutoresize: vsForAutoresize'
+        ]
+    }),
+    __metadata("design:paramtypes", [core_1.ElementRef,
+        core_1.ViewContainerRef,
+        core_1.TemplateRef,
+        core_1.Renderer,
+        core_1.NgZone,
+        core_1.ChangeDetectorRef])
+], VsFor);
 exports.VsFor = VsFor;
-//# sourceMappingURL=ng2-vs-for.js.map
+//# sourceMappingURL=ng2-vs-for.directive.js.map

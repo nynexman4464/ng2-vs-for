@@ -1,8 +1,6 @@
-
-
 import {bootstrap} from '@angular/platform-browser-dynamic';
 import {Component} from '@angular/core';
-import {VsFor} from '../src/ng2-vs-for.js';
+import {VsFor} from '../src/ng2-vs-for.directive.js';
 
 @Component({
   selector: 'ng2-vs-for-test',

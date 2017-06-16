@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
 var core_1 = require('@angular/core');
-var ng2_vs_for_js_1 = require('../src/ng2-vs-for.js');
+var ng2_vs_for_js_1 = require('../src/ng2-vs-for.directive.js');
 var Boot = (function () {
     function Boot() {
         this.items = [];
